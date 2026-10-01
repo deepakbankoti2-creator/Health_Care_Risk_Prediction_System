@@ -1,0 +1,98 @@
+{
+  "model_name": "Logistic Regression",
+  "version": "1.0.0",
+  "training_date": "2026-10-01",
+  "features": [
+    "age",
+    "gender",
+    "chest_pain_type",
+    "resting_bp",
+    "cholesterol",
+    "fasting_bs",
+    "resting_ecg",
+    "max_heart_rate",
+    "exercise_angina",
+    "oldpeak",
+    "st_slope",
+    "bmi",
+    "smoking"
+  ],
+  "feature_importances": {
+    "age": 1.8958,
+    "gender": 0.9095,
+    "chest_pain_type": 1.3458,
+    "resting_bp": 1.0107,
+    "cholesterol": 2.5952,
+    "fasting_bs": 0.8424,
+    "resting_ecg": 0.1288,
+    "max_heart_rate": 1.7748,
+    "exercise_angina": 1.585,
+    "oldpeak": 2.4136,
+    "st_slope": 1.0501,
+    "bmi": 0.9698,
+    "smoking": 0.9794
+  },
+  "metrics": {
+    "Logistic Regression": {
+      "accuracy": 0.975,
+      "precision": 0.9375,
+      "recall": 0.9091,
+      "specificity": 0.988,
+      "f1_score": 0.9231,
+      "roc_auc": 0.9973,
+      "pr_auc": 0.9884,
+      "confusion_matrix": {
+        "tn": 165,
+        "fp": 2,
+        "fn": 3,
+        "tp": 30
+      }
+    },
+    "Decision Tree": {
+      "accuracy": 0.825,
+      "precision": 0.4783,
+      "recall": 0.6667,
+      "specificity": 0.8563,
+      "f1_score": 0.557,
+      "roc_auc": 0.8296,
+      "pr_auc": 0.5477,
+      "confusion_matrix": {
+        "tn": 143,
+        "fp": 24,
+        "fn": 11,
+        "tp": 22
+      }
+    },
+    "Random Forest": {
+      "accuracy": 0.93,
+      "precision": 0.9524,
+      "recall": 0.6061,
+      "specificity": 0.994,
+      "f1_score": 0.7407,
+      "roc_auc": 0.9744,
+      "pr_auc": 0.9156,
+      "confusion_matrix": {
+        "tn": 166,
+        "fp": 1,
+        "fn": 13,
+        "tp": 20
+      }
+    },
+    "XGBoost": {
+      "accuracy": 0.965,
+      "precision": 0.9643,
+      "recall": 0.8182,
+      "specificity": 0.994,
+      "f1_score": 0.8852,
+      "roc_auc": 0.9839,
+      "pr_auc": 0.9457,
+      "confusion_matrix": {
+        "tn": 166,
+        "fp": 1,
+        "fn": 6,
+        "tp": 27
+      }
+    }
+  },
+  "sample_count": 1000
+}

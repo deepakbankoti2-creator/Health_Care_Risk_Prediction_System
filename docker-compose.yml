@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: healthcare_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  ml-service:
+    build: ./ml-service
+    container_name: healthcare_ml_service
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    depends_on:
+      - mongodb
+
+  backend:
+    build: ./backend
+    container_name: healthcare_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/healthcare_risk_db
+      - ML_SERVICE_URL=http://ml-service:8000
+      - JWT_SECRET=healthcare_risk_prediction_secret_key_2026
+    depends_on:
+      - mongodb
+      - ml-service
+
+  frontend:
+    build: ./frontend
+    container_name: healthcare_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
